@@ -1,0 +1,26 @@
+# Local environment configuration
+.env
+
+# Composer dependencies
+/vendor/
+
+# PHPUnit files
+phpunit.xml
+.phpunit.result.cache
+.phpunit.cache/
+
+# CodeIgniter generated files
+/writable/cache/*
+!/writable/cache/index.html
+
+/writable/debugbar/*
+!/writable/debugbar/index.html
+
+/writable/logs/*
+!/writable/logs/index.html
+
+/writable/session/*
+!/writable/session/index.html
+
+/writable/uploads/*
+!/writable/uploads/index.html
