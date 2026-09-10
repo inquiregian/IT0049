@@ -33,3 +33,15 @@ A basic four-page Point-of-Sale application created with CodeIgniter 4. This pro
 
    ```bash
    composer install
+
+## Live Application
+
+https://sarmiento-pos.great-site.net
+
+## GitHub Repository
+
+https://github.com/inquiregian/IT0049
+
+## Database Export
+
+Not applicable for this version. As required by the activity, the Customer Accounts and User Accounts pages use static PHP arrays as temporary data sources. No database has been implemented.
