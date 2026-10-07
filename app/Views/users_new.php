@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New User</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 </head>
-
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/customers">Customer Accounts</a>
-        <a href="/users">User Accounts</a>
-    </nav>
+    <?= view('partials/nav') ?>
 
     <h1>Add New User</h1>
 
@@ -35,6 +28,7 @@
                 name="username"
                 value="<?= esc(old('username')) ?>"
                 maxlength="50"
+                autocomplete="username"
                 required
             >
         </div>
@@ -51,9 +45,32 @@
             >
         </div>
 
+        <div>
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="8"
+                autocomplete="new-password"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="password_confirm">Confirm Password</label>
+            <input
+                type="password"
+                id="password_confirm"
+                name="password_confirm"
+                minlength="8"
+                autocomplete="new-password"
+                required
+            >
+        </div>
+
         <button type="submit">Save User</button>
         <a href="<?= site_url('users') ?>">Cancel</a>
     </form>
 </body>
-
 </html>

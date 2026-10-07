@@ -46,8 +46,37 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Maria Santos','maria.santos@example.com','0917-123-4567','2026-09-14 17:58:08'),(2,'Juan Dela Cruz','juan.delacruz@example.com','0918-234-5678','2026-09-14 17:58:08'),(3,'Angela Reyes','angela.reyes@example.com','0919-345-6789','2026-09-14 17:58:08'),(4,'Paolo Garcia','paolo.garcia@example.com','0920-456-7890','2026-09-14 17:58:08'),(5,'Nicole Mendoza','nicole.mendoza@example.com','0921-567-8901','2026-09-14 17:58:08'),(6,'Test Customer','test.customer@example.com','0912-345-6789','2026-09-28 05:47:41');
+INSERT INTO `customers` VALUES (1,'Maria Santos','maria.santos@example.com','0917-123-4567','2026-09-14 17:58:08'),(2,'Juan Dela Cruz','juan.delacruz@example.com','0918-234-5678','2026-09-14 17:58:08'),(3,'Angela Reyes','angela.reyes@example.com','0919-345-6789','2026-09-14 17:58:08'),(4,'Paolo Garcia','paolo.garcia@example.com','0920-456-7890','2026-09-14 17:58:08'),(5,'Nicole Mendoza','nicole.mendoza@example.com','0921-567-8901','2026-09-14 17:58:08'),(6,'Test1 Customer','test.customer@example.com','0912-345-6789','2026-09-28 05:47:41');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `version` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (1,'2026-10-07-131852','App\\Database\\Migrations\\AddPasswordToUsers','default','App',1791379353,1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -62,10 +91,11 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +104,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin01','Carlo Ramirez',NULL,'2026-09-14 18:00:43'),(2,'cashier01','Sophia Cruz',NULL,'2026-09-14 18:00:43'),(3,'cashier02','Miguel Torres',NULL,'2026-09-14 18:00:43'),(4,'manager01','Isabella Flores',NULL,'2026-09-14 18:00:43'),(5,'staff01','Daniel Lim',NULL,'2026-09-14 18:00:43'),(6,'testuser01','Test User','1790575916_7928219ee373852e9b38.jpg','2026-09-28 06:03:16');
+INSERT INTO `users` VALUES (1,'admin01','Carlo Ramirez',NULL,'$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-14 18:00:43'),(2,'cashier01','Sophia Cruz',NULL,'$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-14 18:00:43'),(3,'cashier02','Miguel Torres',NULL,'$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-14 18:00:43'),(4,'manager01','Isabella Flores',NULL,'$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-14 18:00:43'),(5,'staff01','Daniel Lim',NULL,'$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-14 18:00:43'),(6,'testuser02','Test User','1790575916_7928219ee373852e9b38.jpg','$2y$10$vBQycf8eQDKAT.8yCd6FrOpZtqt0YQiRHCkd3ctMn/4OhxzrHSX/i','2026-09-28 06:03:16'),(7,'authdemo','Authentication Demo',NULL,'$2y$10$m23x8XhNJ5F2JOrNWnsoletBYl6xkErBmTyZ1Bnf6P1TZvZF9kmje','2026-10-07 13:46:47');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -87,4 +117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-28 14:18:20
+-- Dump completed on 2026-10-07 21:48:21

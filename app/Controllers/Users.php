@@ -38,6 +38,14 @@ class Users extends BaseController
                 'label' => 'Full name',
                 'rules' => 'required|max_length[100]',
             ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[8]|max_length[255]',
+            ],
+            'password_confirm' => [
+                'label' => 'Confirm password',
+                'rules' => 'required|matches[password]',
+            ],
         ];
 
         if (! $this->validate($rules)) {
@@ -45,12 +53,21 @@ class Users extends BaseController
         }
 
         $this->userModel->insert([
-            'username'   => trim($this->request->getPost('username')),
-            'full_name'  => trim($this->request->getPost('full_name')),
+            'username' => trim(
+                (string) $this->request->getPost('username')
+            ),
+            'full_name' => trim(
+                (string) $this->request->getPost('full_name')
+            ),
+            'password' => password_hash(
+                (string) $this->request->getPost('password'),
+                PASSWORD_DEFAULT
+            ),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to('/users')
+        return redirect()
+            ->to('/users')
             ->with('success', 'User account created successfully.');
     }
 
@@ -112,8 +129,12 @@ class Users extends BaseController
         }
 
         $data = [
-            'username'  => trim($this->request->getPost('username')),
-            'full_name' => trim($this->request->getPost('full_name')),
+            'username' => trim(
+                (string) $this->request->getPost('username')
+            ),
+            'full_name' => trim(
+                (string) $this->request->getPost('full_name')
+            ),
         ];
 
         if ($hasAvatar && $avatar->isValid() && ! $avatar->hasMoved()) {
@@ -152,7 +173,8 @@ class Users extends BaseController
 
         $this->userModel->update($id, $data);
 
-        return redirect()->to('/users')
+        return redirect()
+            ->to('/users')
             ->with('success', 'User account updated successfully.');
     }
 }

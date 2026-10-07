@@ -195,3 +195,87 @@ button:hover,
         overflow-x: auto;
     }
 }
+/* Authentication */
+
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #9ca3af;
+    border-radius: 4px;
+    font: inherit;
+    background-color: white;
+}
+
+.page-container {
+    padding: 1px 20px 40px;
+}
+
+.login-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.login-card h1,
+.login-card p {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.login-card form {
+    width: 100%;
+    margin: 24px 0 0;
+    padding: 0;
+    border: none;
+}
+
+.alert {
+    margin: 16px 0;
+    padding: 12px 16px;
+    border-radius: 4px;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert-error {
+    border: 1px solid #dc2626;
+    color: #991b1b;
+    background-color: #fee2e2;
+}
+
+.alert-success {
+    border: 1px solid #16a34a;
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.nav-user {
+    margin-right: 16px;
+    color: #d1d5db;
+}
+
+.logout-form {
+    display: inline;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.logout-button {
+    padding: 6px 12px;
+    color: white;
+    background-color: #dc2626;
+}
+
+.logout-button:hover {
+    background-color: #b91c1c;
+}
